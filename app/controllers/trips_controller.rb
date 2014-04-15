@@ -11,11 +11,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-  end
-
-  def getwaypoints
-    @waypoints = Stop.where(trip_id: params[:id])
-    render json: @waypoints
+    @stops = @trip.stops
   end
 
 private
